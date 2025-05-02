@@ -91,6 +91,7 @@
 byte midiData[] = {0x80, 0x80, 0x00, 0x00, 0x00};
 int prevButtonState[] = {0, 0, 0, 0};
 int prevPotState[] = {0};
+bool bHoldNotToggle = false;
 
 // set up the MIDI service and MIDI message characteristic:
 BLEService midiService("03B80E5A-EDE8-4B33-A751-6CE34EC4C700");
@@ -218,6 +219,11 @@ void setup() {
 
   // register disconnect handler
   BLE.setEventHandler(BLEDisconnected, blePeripheralDisconnectHandler);
+
+  //TODO: Add hold/toggle test here
+  if (digitalRead(button_six)) {
+    bHoldNotToggle = true;
+  }
 }
 
 void blePeripheralConnectHandler(BLEDevice central) {
@@ -441,6 +447,12 @@ void midiCommand(byte cmd, byte note, byte  velocity) {
   midiCharacteristic.writeValue(midiData, sizeof(midiData));
 }
 
+/*
+So because the BT version sends 127 velocity for note on and note off, the web app interprets it as "hold-to-play"
+The USB version sends velo 0 for note off so it's a toggle. We now want it to default to toggle for both interfaces.
+But if the purple button is held on startup both becomes holds
+*/
+
 //Checks if button connected to pin button was pressed and sends MIDI signal over BLE
 void checkButtonBLE(int button, byte note) {
   if (digitalRead(button) == HIGH && prevButtonState[note - 1] == 0)
@@ -448,7 +460,11 @@ void checkButtonBLE(int button, byte note) {
     midiCommand(0x90, note, 127); //Sends note on command
     prevButtonState[note - 1] = 1;
   } else if (digitalRead(button) == LOW && prevButtonState[note - 1] == 1) {
-    midiCommand(0x80, note, 127); //Sends note off command
+    if (bHoldNotToggle) {
+      midiCommand(0x80, note, 127); //Sends note off command
+    } else {
+      midiCommand(0x80, note, 0); //Sends note off command
+    }
     prevButtonState[note - 1] = 0;
   }
 }
@@ -471,7 +487,11 @@ void checkButtonUSB(int button, byte note) {
     MidiUSB.flush();
     prevButtonState[note - 1] = 1;
   } else if (digitalRead(button) == LOW && prevButtonState[note - 1] == 1) {
-    noteOff(1, note, 0); //Sends out midi signal to turn off the note
+    if (bHoldNotToggle) {
+      noteOff(1, note, 127); //Sends out midi signal to turn off the note
+    } else {
+      noteOff(1, note, 0); //Sends out midi signal to turn off the note
+    }
     MidiUSB.flush();
     prevButtonState[note - 1] = 0;
   }
