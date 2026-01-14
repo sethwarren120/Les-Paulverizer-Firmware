@@ -8,3 +8,9 @@ This research was sponsored by the Les Paul Foundation; to learn more about Les 
 <br>
 
 Visit [LesPaulverizer.com](http://lespaulverizer.com) for more information. 
+
+## Contributing
+
+Navigate to the [CONTRIBUTING.md](./CONTRIBUTING.md) file for guidelines on how to contribute to the project.
+
+Music, audio, and other creative works produced using the Les Paulverizer are not considered Contributions and remain the sole property of their creators.
