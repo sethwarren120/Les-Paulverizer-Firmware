@@ -1,5 +1,25 @@
 #include <ArduinoBLE.h>
 #include <MIDIUSB.h>
+
+#include "TrackButton.h"
+#include "TrackControls.h"
+
+
+
+TrackButton[] tracks = {
+  
+};
+
+ActionButton[] actions = {
+
+}
+
+ActionDial[] dials = {
+  
+}
+
+
+
 //Define Buttons ports to D0-D14
 //Do not change pin values
 //#define button_zero 0
@@ -101,100 +121,6 @@ void setup() {
   // initialize serial communication
   Serial.begin(9600);
 
-  //set up buttons
-#if defined(button_zero)
-  pinMode(button_zero, INPUT);
-#endif
-#if defined(button_one)
-  pinMode(button_one, INPUT);
-#endif
-#if defined(button_two)
-  pinMode(button_two, INPUT);
-#endif
-#if defined(button_three)
-  pinMode(button_three, INPUT);
-#endif
-#if defined(button_four)
-  pinMode(button_four, INPUT);
-#endif
-#if defined(button_five)
-  pinMode(button_five, INPUT);
-#endif
-#if defined(button_six)
-  pinMode(button_six, INPUT);
-#endif
-#if defined(button_seven)
-  pinMode(button_seven, INPUT);
-#endif
-#if defined(button_eight)
-  pinMode(button_eight, INPUT);
-#endif
-#if defined(button_nine)
-  pinMode(button_nine, INPUT);
-#endif
-#if defined(button_ten)
-  pinMode(button_ten, INPUT);
-#endif
-#if defined(button_eleven)
-  pinMode(button_eleven, INPUT);
-#endif
-#if defined(button_twelve)
-  pinMode(button_twelve, INPUT);
-#endif
-#if defined(button_thirteen)
-  pinMode(button_thirteen, INPUT);
-#endif
-#if defined(button_fourteen)
-  pinMode(button_fourteen, INPUT);
-#endif
-#if defined(button_fifteen)
-  pinMode(button_fifteen, INPUT);
-#endif
-#if defined(button_sixteen)
-  pinMode(button_sixteen, INPUT);
-#endif
-#if defined(button_seventeen)
-  pinMode(button_seventeen, INPUT);
-#endif
-#if defined(button_eighteen)
-  pinMode(button_eighteen, INPUT);
-#endif
-#if defined(button_nineteen)
-  pinMode(button_nineteen, INPUT);
-#endif
-#if defined(button_twenty)
-  pinMode(button_twenty, INPUT);
-#endif
-#if defined(button_twenty_one)
-  pinMode(button_twenty_one, INPUT);
-#endif
-
-
-  //set up potentiometers
-#if defined(pot_zero)
-  pinMode(pot_zero, INPUT);
-#endif
-#if defined(pot_one)
-  pinMode(pot_one, INPUT);
-#endif
-#if defined(pot_two)
-  pinMode(pot_two, INPUT);
-#endif
-#if defined(pot_three)
-  pinMode(pot_three, INPUT);
-#endif
-#if defined(pot_four)
-  pinMode(pot_four, INPUT);
-#endif
-#if defined(pot_five)
-  pinMode(pot_five, INPUT);
-#endif
-#if defined(pot_six)
-  pinMode(pot_six, INPUT);
-#endif
-
-
-
   // initialize BLE:
   if (!BLE.begin()) {
     Serial.println("Starting BLE failed!");
@@ -246,199 +172,12 @@ void loop() {
   while (central.connected()) {
     BLE.stopAdvertise();
     //Buttons
-#if defined(button_one)
-    checkButtonBLE(button_zero, button_zero_note);
-#endif
-#if defined(button_zero)
-    checkButtonBLE(button_one, button_one_note);
-#endif
-#if defined(button_two)
-    checkButtonBLE(button_two, button_two_note);
-#endif
-#if defined(button_three)
-    checkButtonBLE(button_three, button_three_note);
-#endif
-#if defined(button_four)
-    checkButtonBLE(button_four, button_four_note);
-#endif
-#if defined(button_five)
-    checkButtonBLE(button_five, button_five_note);
-#endif
-#if defined(button_six)
-    checkButtonBLE(button_six, button_six_note);
-#endif
-#if defined(button_seven)
-    checkButtonBLE(button_seven, button_seven_note);
-#endif
-#if defined(button_eight)
-    checkButtonBLE(button_eight, button_eight_note);
-#endif
-#if defined(button_nine)
-    checkButtonBLE(button_nine, button_nine_note);
-#endif
-#if defined(button_ten)
-    checkButtonBLE(button_ten, button_ten_note);
-#endif
-#if defined(button_eleven)
-    checkButtonBLE(button_eleven, button_eleven_note);
-#endif
-#if defined(button_twelve)
-    checkButtonBLE(button_twelve, button_twelve_note);
-#endif
-#if defined(button_thirteen)
-    checkButtonBLE(button_thirteen, button_thirteen_note);
-#endif
-#if defined(button_fourteen)
-    checkButtonBLE(button_fourteen, button_fourteen_note);
-#endif
-#if defined(button_fifteen)
-    checkButtonBLE(button_fifteen, button_fifteen_note);
-#endif
-#if defined(button_sixteen)
-    checkButtonBLE(button_sixteen, button_sixteen_note);
-#endif
-#if defined(button_seventeen)
-    checkButtonBLE(button_seventeen, button_seventeen_note);
-#endif
-#if defined(button_eighteen)
-    checkButtonBLE(button_eighteen, button_eighteen_note);
-#endif
-#if defined(button_nineteen)
-    checkButtonBLE(button_nineteen, button_nineteen_note);
-#endif
-#if defined(button_twenty)
-    checkButtonBLE(button_twenty, button_twenty_note);
-#endif
-#if defined(button_twenty_one)
-    checkButtonBLE(button_twenty_one, button_twenty_one_note);
-#endif
-
-    //Potentiometers
-#if defined(pot_zero)
-    checkPotBLE(pot_zero, 1, pot_zero_curve);
-#endif
-#if defined(pot_one)
-    checkPotBLE(pot_one, 1, pot_one_curve);
-#endif
-#if defined(pot_two)
-    checkPotBLE(pot_two, 1, pot_two_curve);
-#endif
-#if defined(pot_three)
-    checkPotBLE(pot_three, 1, pot_three_curve);
-#endif
-#if defined(pot_four)
-    checkPotBLE(pot_four, 1, pot_four_curve);
-#endif
-#if defined(pot_five)
-    checkPotBLE(pot_five, 1, pot_five_curve);
-#endif
-#if defined(pot_six)
-    checkPotBLE(pot_six, 1, pot_six_curve);
-#endif
-
-
-
   }
   midiCommand(0x0, 0, 0);
-
-  //USB Connection
-
-  //Buttons
-#if defined(button_one)
-  checkButtonUSB(button_zero, button_zero_note);
-#endif
-#if defined(button_zero)
-  checkButtonUSB(button_one, button_one_note);
-#endif
-#if defined(button_two)
-  checkButtonUSB(button_two, button_two_note);
-#endif
-#if defined(button_three)
-  checkButtonUSB(button_three, button_three_note);
-#endif
-#if defined(button_four)
-  checkButtonUSB(button_four, button_four_note);
-#endif
-#if defined(button_five)
-  checkButtonUSB(button_five, button_five_note);
-#endif
-#if defined(button_six)
-  checkButtonUSB(button_six, button_six_note);
-#endif
-#if defined(button_seven)
-  checkButtonUSB(button_seven, button_seven_note);
-#endif
-#if defined(button_eight)
-  checkButtonUSB(button_eight, button_eight_note);
-#endif
-#if defined(button_nine)
-  checkButtonUSB(button_nine, button_nine_note);
-#endif
-#if defined(button_ten)
-  checkButtonUSB(button_ten, button_ten_note);
-#endif
-#if defined(button_eleven)
-  checkButtonUSB(button_eleven, button_eleven_note);
-#endif
-#if defined(button_twelve)
-  checkButtonUSB(button_twelve, button_twelve_note);
-#endif
-#if defined(button_thirteen)
-  checkButtonUSB(button_thirteen, button_thirteen_note);
-#endif
-#if defined(button_fourteen)
-  checkButtonUSB(button_fourteen, button_fourteen_note);
-#endif
-#if defined(button_fifteen)
-  checkButtonUSB(button_fifteen, button_fifteen_note);
-#endif
-#if defined(button_sixteen)
-  checkButtonUSB(button_sixteen, button_sixteen_note);
-#endif
-#if defined(button_seventeen)
-  checkButtonUSB(button_seventeen, button_seventeen_note);
-#endif
-#if defined(button_eighteen)
-  checkButtonUSB(button_eighteen, button_eighteen_note);
-#endif
-#if defined(button_nineteen)
-  checkButtonUSB(button_nineteen, button_nineteen_note);
-#endif
-#if defined(button_twenty)
-  checkButtonUSB(button_twenty, button_twenty_note);
-#endif
-#if defined(button_twenty_one)
-  checkButtonUSB(button_twenty_one, button_twenty_one_note);
-#endif
-
-
-  //Potentiometer
-#if defined(pot_zero)
-  checkPotUSB(pot_zero, pot_zero_note, pot_zero_curve);
-#endif
-#if defined(pot_one)
-  checkPotUSB(pot_one, pot_one_note, pot_one_curve);
-#endif
-#if defined(pot_two)
-  checkPotUSB(pot_two, pot_two_note, pot_two_curve);
-#endif
-#if defined(pot_three)
-  checkPotUSB(pot_three, pot_three_note, pot_three_curve);
-#endif
-#if defined(pot_four)
-  checkPotUSB(pot_four, pot_four_note, pot_four_curve);
-#endif
-#if defined(pot_five)
-  checkPotUSB(pot_five, pot_five_note, pot_five_curve);
-#endif
-#if defined(pot_six)
-  checkPotUSB(pot_six, pot_six_note, pot_six_curve);
-#endif
-
 }
 
 // send a 3-byte midi message
-void midiCommand(byte cmd, byte note, byte  velocity) {
+void midiCommand(byte cmd, byte note, byte velocity) {
   // MIDI data goes in the last three bytes of the midiData array:
   midiData[2] = cmd;
   midiData[3] = note;
