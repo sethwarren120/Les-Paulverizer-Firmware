@@ -37,8 +37,8 @@ public:
         // We will assume that the notes are already arranged in time order
         // For every loop, we will play every note in the queue that has reached its start
         // time since we started this track iteration
-        while (track->startTimes[noteIndex] > (currTIme - startTime)) {
-            MidiManager::PlayNoteTimed(track->notes[noteIndex], track->velocities[noteIndex], track->length[noteIndex])
+        while (track->startTimes[noteIndex] > (currTime - startTime)) {
+            MidiManager::PlayNoteTimed(track->notes[noteIndex], track->velocities[noteIndex], track->length[noteIndex]);
             noteIndex++;
 
             if (noteIndex == sizeof(track->notes) / sizeof(track->notes[0])) {
