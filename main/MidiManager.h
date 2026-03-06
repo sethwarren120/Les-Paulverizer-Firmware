@@ -7,8 +7,6 @@ class MidiManager
 {
 private:
 
-    // First array is track number
-    static unsigned int noteTimes[1][128];
 
 public:
 

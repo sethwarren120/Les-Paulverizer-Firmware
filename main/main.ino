@@ -20,6 +20,10 @@ TrackButton trackButton1(35, trackact);
 void setup() {
   Serial.begin(9600);
 
+  Serial.println("Startup");
+
+  digitalWrite(LED_BUILTIN, LOW);
+
   BluetoothManager::setup();
 
   int notes[100] = { 40, 50, 60 };

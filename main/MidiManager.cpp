@@ -3,6 +3,8 @@
 #include "MidiManager.h"
 #include "BluetoothManager.h"
 
+    // First array is track number
+    static unsigned int noteTimes[1][128];
 // Plays a note for a given amount of time
 // The track parameter exists to allow output to different tracks in the future (ie for different instruments)
 // It is unused for now but still there to prevent preexisting code from breaking upon implementation

@@ -3,6 +3,12 @@
 #include <Arduino.h>
 #include <ArduinoBLE.h>
 
+    // We again are leaving the code set up for eventual multi-track functionality
+    static unsigned int midiState[1][128];
+    static bool stateFlag[1][128];
+
+    static BLEService midiService;
+    static BLECharacteristic midiCharacteristic;
 
 void BluetoothManager::setup() {
     midiService = BLEService("03B80E5A-EDE8-4B33-A751-6CE34EC4C700");
