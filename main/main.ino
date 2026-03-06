@@ -8,6 +8,8 @@
 
 PlayMidi* midiTrack1 = new PlayMidi();
 TrackAction* trackact = midiTrack1;
+
+
 TrackButton trackButton1(35, trackact);
 
 
@@ -18,18 +20,24 @@ TrackButton trackButton1(35, trackact);
 
 
 void setup() {
+  delay(3000);
+
   Serial.begin(9600);
 
   Serial.println("Startup");
 
-  digitalWrite(LED_BUILTIN, LOW);
-
   BluetoothManager::setup();
 
+  // For testing, Midi tracks are being set up here
   int notes[100] = { 40, 50, 60 };
   int velocities[100] = { 100, 100, 100 };
   int startTimes[100] = { 1000, 2000, 3000 };
   int lengths[100] = { 500, 500, 500 };
+
+  midiTrack1->notes = notes;
+  midiTrack1->velocities = velocities;
+  midiTrack1->startTimes = startTimes;
+  midiTrack1->lengths = lengths;
 }
 
 void loop() {

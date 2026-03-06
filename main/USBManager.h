@@ -1,4 +1,5 @@
-
+// USB functionality was originally implemented in the first version of the device
+// The library used for the original is incompatible with the new ESP32-S3
 
 class USBManager
 {

@@ -4,6 +4,8 @@
 #include "MidiTrack.h"
 
 // Plays a basic midi track
+// This is a track action to be assigned as functionality to one of the four main buttons
+// The overall data structure of MIDI within the project probably needs work to make it easier to use and develop
 
 class PlayMidi : public TrackAction 
 {

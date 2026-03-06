@@ -1,5 +1,9 @@
 #pragma once
 
+// The purpose of the track button class is to allow the functionality of a button to be changed
+// Most of the time the button will play a midi track, but it could also be something such as a metronome
+// The eventual goal would be to get these to change through the browser based DAW
+
 class TrackAction 
 {
 public:

@@ -2,6 +2,9 @@
 
 #include "TrackControlsActions.h"
 
+// Buttons and dials are also included to eiter change settings for tracks or do some sort of action on a track
+// Dials could change tempo or midi velocity, and buttons could do things such as record
+
 class ActionButton 
 {
 public:

@@ -3,6 +3,10 @@
 #include <Arduino.h>
 #include <ArduinoBLE.h>
 
+// Bluetooth functionality is copied over from the firmware for the first version of the device
+// Some of it is a bit vague in its function, it is likely you will have to dig into the website
+// code to find out more.
+
     // We again are leaving the code set up for eventual multi-track functionality
     static unsigned int midiState[1][128];
     static bool stateFlag[1][128];
@@ -57,6 +61,7 @@ void BluetoothManager::playMidi(int note, int velocity) {
     stateFlag[0][note] = true;
 }
 
+// The bluetooth messages need to be sent every code loop with the current implementation
 void BluetoothManager::loop() {
   // wait for a BLE central
   BLEDevice central = BLE.central();
