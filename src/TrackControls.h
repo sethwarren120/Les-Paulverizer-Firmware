@@ -1,8 +1,14 @@
+#pragma once
+
+#include "TrackControlsActions.h"
+
 class ActionButton 
 {
 public:
 
     int pin;
+
+    int ledPin;
 
     // TODO: LED PINS FOR VISUAL FEEDBACK
 
@@ -11,7 +17,7 @@ public:
     // references such as LED pins so that it can give external feedback
     void SetTrackAction(ButtonAction* newAction) {
         action = newAction;
-        action->SetHardwareReferences(this);
+        action->SetHardwareReferences(pin, ledPin);
     }
 
     void loop(int selectedTrack) {
@@ -42,34 +48,6 @@ private:
 
 
 
-class ButtonAction
-{
-public:
-
-    // Button Actions will be fully responsible for managing each button press,
-    // as they are highly functional buttons
-    virtual void HandlePush(int selectedTrack) = 0;
-    virtual void HandleRelease(int selectedTrack) = 0;
-
-    virtual void HandleHold(int selectedTrack) = 0;
-
-    virtual void loop(int selectedTrack) = 0;
-
-    void SetHardwareReferences(ActionButton* actionButton) {
-        // TODO: Set the LED PIN pointer to reference the LED pins from actionButton
-    }
-
-private:
-
-    // TODO: LED PIN pointer
-
-    void SetRGB(int r, int g, int b) {
-
-    }
-};
-
-
-
 class ActionDial
 {
 public:
@@ -96,15 +74,4 @@ private:
     int previousAdc;
 
     DialAction *action;
-};
-
-
-
-class DialAction
-{
-public:
-    
-    virtual void Update(int adc, int selectedTrack) = 0;
-
-    virtual void loop(int selectedTrack) = 0;
 };

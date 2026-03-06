@@ -33,7 +33,7 @@ public:
 
         unsigned int currTime = millis();
 
-        if ((millis() - startTIme) / (3600 / bpm) > tickNum) {
+        if ((millis() - startTime) / (3600 / bpm) > tickNum) {
             // TODO: Tick
         }
     }

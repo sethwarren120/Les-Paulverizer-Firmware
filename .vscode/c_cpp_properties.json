@@ -10,6 +10,7 @@
             "includePath": [
                 "C:/Dev/WPI/HUA/Les-Paulverizer-Firmware/include",
                 "C:/Dev/WPI/HUA/Les-Paulverizer-Firmware/src",
+                "C:/Dev/WPI/HUA/Les-Paulverizer-Firmware/.pio/libdeps/4d_systems_esp32s3_gen4_r8n16/ArduinoBLE/src",
                 "C:/Users/sethw/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/newlib/platform_include",
                 "C:/Users/sethw/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/freertos/include",
                 "C:/Users/sethw/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/freertos/include/esp_additions/freertos",
@@ -209,6 +210,7 @@
                 "C:/Users/sethw/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/qio_opi/include",
                 "C:/Users/sethw/.platformio/packages/framework-arduinoespressif32/cores/esp32",
                 "C:/Users/sethw/.platformio/packages/framework-arduinoespressif32/variants/esp32_s3r8n16",
+                "C:/Dev/WPI/HUA/Les-Paulverizer-Firmware/.pio/libdeps/4d_systems_esp32s3_gen4_r8n16/Arduino_SpiNINA/src",
                 "C:/Users/sethw/.platformio/packages/framework-arduinoespressif32/libraries/ArduinoOTA/src",
                 "C:/Users/sethw/.platformio/packages/framework-arduinoespressif32/libraries/AsyncUDP/src",
                 "C:/Users/sethw/.platformio/packages/framework-arduinoespressif32/libraries/BLE/src",
@@ -249,6 +251,7 @@
                 "path": [
                     "C:/Dev/WPI/HUA/Les-Paulverizer-Firmware/include",
                     "C:/Dev/WPI/HUA/Les-Paulverizer-Firmware/src",
+                    "C:/Dev/WPI/HUA/Les-Paulverizer-Firmware/.pio/libdeps/4d_systems_esp32s3_gen4_r8n16/ArduinoBLE/src",
                     "C:/Users/sethw/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/newlib/platform_include",
                     "C:/Users/sethw/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/freertos/include",
                     "C:/Users/sethw/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/freertos/include/esp_additions/freertos",
@@ -448,6 +451,7 @@
                     "C:/Users/sethw/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/qio_opi/include",
                     "C:/Users/sethw/.platformio/packages/framework-arduinoespressif32/cores/esp32",
                     "C:/Users/sethw/.platformio/packages/framework-arduinoespressif32/variants/esp32_s3r8n16",
+                    "C:/Dev/WPI/HUA/Les-Paulverizer-Firmware/.pio/libdeps/4d_systems_esp32s3_gen4_r8n16/Arduino_SpiNINA/src",
                     "C:/Users/sethw/.platformio/packages/framework-arduinoespressif32/libraries/ArduinoOTA/src",
                     "C:/Users/sethw/.platformio/packages/framework-arduinoespressif32/libraries/AsyncUDP/src",
                     "C:/Users/sethw/.platformio/packages/framework-arduinoespressif32/libraries/BLE/src",
